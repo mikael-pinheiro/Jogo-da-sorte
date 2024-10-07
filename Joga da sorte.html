@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Sorte</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1>Jogo da Sorte</h1>
+        <div id="buttons" class="my-4">
+            <button class="btn btn-success mx-2" onclick="checkButton(1)">Botão 1</button>
+            <button class="btn btn-success mx-2" onclick="checkButton(2)">Botão 2</button>
+            <button class="btn btn-success mx-2" onclick="checkButton(3)">Botão 3</button>
+            <button class="btn btn-success mx-2" onclick="checkButton(4)">Botão 4</button>
+            <button class="btn btn-success mx-2" onclick="checkButton(5)">Botão 5</button>
+        </div>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        const correctButton = Math.floor(Math.random() * 5) + 1;
+
+        function checkButton(buttonNumber) {
+            const messageDiv = document.getElementById('message');
+            if (buttonNumber === correctButton) {
+                messageDiv.innerHTML = `<span class="text-success">Você acertou! O botão correto é o ${buttonNumber}</span>`;
+            } else {
+                messageDiv.innerHTML = `<span class="text-danger">Você errou! O botão ${buttonNumber} não é o correto</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
